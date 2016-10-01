@@ -8,7 +8,7 @@ RUBY_VERSION=2.2.4
 main()
 {
     
-    install_rbenv_gollum
+    #install_rbenv_gollum
     REPO_NAME=$(basename $SCRIPT_DIR)
     prepare_service_bash
     prepare_service_command
