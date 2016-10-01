@@ -1,7 +1,7 @@
 ## Description
 This repo is a gollum wiki template. This wiki will be hosted automatically when you start ubuntu. 
 ## Install  
-Run install script in the repo.   
+Run install script in the repo. This install script has only been tested on ubuntu 14.04 LTS.
 
 ```bash
 git clone https://github.com/yuzhangbit/wiki-Barebone.git
