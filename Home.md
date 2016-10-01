@@ -1,7 +1,6 @@
 # Home
 
 * [README](/README)
-* 
 
 
 
