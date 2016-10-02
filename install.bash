@@ -38,7 +38,8 @@ create_autostart_app()   # will create a wiki.desktop file.
     fi  
     APP="$COMMAND.desktop"
     touch $APP
-    echo "Type=Application" > $APP    
+    echo '[Desktop Entry]' > $APP
+    echo "Type=Application" >> $APP    
     echo "Exec=start $COMMAND" >> $APP 
     echo "Hidden=false" >> $APP
     echo "NoDisplay=false" >> $APP
