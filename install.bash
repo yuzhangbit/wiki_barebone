@@ -8,12 +8,12 @@ RUBY_VERSION=2.2.4
 main()
 {
     
-    #install_rbenv_gollum
-    REPO_NAME=$(basename $SCRIPT_DIR)
-    prepare_service_bash
-    prepare_service_command
-    load_configration    
-    create_autostart_app
+    install_rbenv_gollum     # install dependencies
+    REPO_NAME=$(basename $SCRIPT_DIR)   # get name of this repo
+    prepare_service_bash    # create service.bash file
+    prepare_service_command  # create wiki.conf file
+    load_configration       # load configuration and service 
+    create_autostart_app    # create wiki.desktop file
 }
 
 load_configration()
@@ -28,7 +28,8 @@ load_configration()
     initctl reload-configuration
     echo "Start the service!"
 }
-create_autostart_app()
+
+create_autostart_app()   # will create a wiki.desktop file. 
 {
     if [ -d ~/.config/autostart ]; then
         echo "Already has autostart folder."
@@ -60,7 +61,7 @@ prepare_service_bash()
     echo "Created service.bash file"
 }
 
-prepare_service_command()
+prepare_service_command()  # create wiki.conf file 
 {
     touch $COMMAND.conf
     echo '#' > $COMMAND.conf
@@ -76,19 +77,24 @@ prepare_service_command()
 
 install_rbenv_gollum()
 {
-	cd $HOME
-	echo "start installing rbenv , gem , gollum....."
-	if [ -d ~/.rbenv ]; then 
-	   echo "Find rbevn."
+    cd $HOME
+    echo "start installing rbenv , gem , gollum....."
+    if [ -d ~/.rbenv ]; then 
+        echo "Find rbevn."
     else
         git clone https://github.com/rbenv/rbenv.git ~/.rbenv
-	fi
+    fi
     if [ -d ~/.rbenv/plugins/ruby-build ]; then
         echo "Find ruby build"   
     else
 	    git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
     fi
 	cd ~/.rbenv && src/configure && make -C src
+	if [ -d ~/.bash_profile ]; then
+		echo "bash_profile exists."
+	else
+		touch ~/.bash_profile
+	fi
 	if (grep "bashrc" ~/.bash_profile); then 
 		echo " bash_profile is already set up."
 	else 
