@@ -12,11 +12,11 @@ main()
     REPO_NAME=$(basename $SCRIPT_DIR)   # get name of this repo
     prepare_service_bash    # create service.bash file
     prepare_service_command  # create wiki.conf file
-    load_configration       # load configuration and service 
+    load_configuration       # load configuration and service 
     create_autostart_app    # create wiki.desktop file
 }
 
-load_configration()
+load_configuration()
 {
     echo "Prepare auto start service for the wiki."
     if [ -d ~/.init ]; then
