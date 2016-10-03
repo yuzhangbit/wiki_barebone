@@ -64,6 +64,7 @@ prepare_service_bash()
 
 prepare_service_command()  # create wiki.conf file 
 {
+    cd "$SCRIPT_DIR"
     touch $COMMAND.conf
     echo '#' > $COMMAND.conf
     echo 'description     "Gollum Wiki"' >> $COMMAND.conf
