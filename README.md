@@ -26,13 +26,15 @@ localhost:4444
 
 
 
-
 ## Adjustable Parameters
-You can modify the port number of your wiki in **install.script** before installation,
+You can modify the port number of your wiki in **setup.script**,
 ```bash
 PORT=4444    # hosting port 
 ```
-or modify the port number in the generated **service.bash** after running install script 
+then set up the service:
+```bash
+bash setup.bash
+```
 
 Below is your service name of your wiki.
 ```bash
