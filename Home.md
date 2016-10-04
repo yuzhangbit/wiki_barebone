@@ -3,6 +3,8 @@
 * [README](/README)
 
 
+## EXAMPLE
+
 ## Description
 This repo is a gollum wiki template. This wiki will be hosted automatically when you start ubuntu. 
 
