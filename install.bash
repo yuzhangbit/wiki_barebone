@@ -4,10 +4,9 @@ RUBY_VERSION=2.2.4
 
 main()
 {
+
 	install_rbenv_gollum     # install dependencies
 }
-
-
 
 
 install_rbenv_gollum()
