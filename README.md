@@ -18,10 +18,6 @@ If you have already installed the dependencies and just want to switch between d
 bash setup.bash
 ```
 
-Reboot or run command below:
-```
-start wiki
-```
 Open your browser and check the wiki.
 ```bash
 localhost:4444
