@@ -89,33 +89,22 @@ install_rbenv_gollum()
     if [ -d ~/.rbenv/plugins/ruby-build ]; then
         echo "Find ruby build"   
     else
-	    git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+	git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
     fi
 	cd ~/.rbenv && src/configure && make -C src
-	if [ -d ~/.bash_profile ]; then
-		echo "bash_profile exists."
-	else
-		touch ~/.bash_profile
-	fi
-	if (grep "bashrc" ~/.bash_profile); then 
-		echo " bash_profile is already set up."
+	if (grep "export PATH=".*/.rbenv/bin:$PATH"" ~/.bashrc); then
+		echo " Path env for rbenv is already set."
 	else 
-		echo 'if [ -f ~/.bashrc ]; then . ~/.bashrc; fi' >> ~/.bash_profile
+		echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
 	fi
-	if (grep 'export PATH=$HOME/.rbenv/bin:$PATH' ~/.bashrc); then
+	if (grep 'export PATH="$HOME/.rbenv/bin:$PATH"' ~/.bashrc); then
 		echo "Bashrc is already set up for rbenv."
 	else
 		echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
 	fi
-	if (grep 'eval "$(rbenv init -)"' ~/.bashrc); then
-		echo 'rbenv is already setup.'
-	else
-		echo 'eval "$(rbenv init -)"' >> ~/.bashrc
-
-	fi	
+	source ~/.bashrc
 	~/.rbenv/bin/rbenv init || true
 	echo "rbenv initialized successfully....." 
-	source ~/.bash_profile
 	source ~/.bashrc
 	~/.rbenv/bin/rbenv install $RUBY_VERSION
 	rbenv global $RUBY_VERSION
