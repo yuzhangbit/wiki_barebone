@@ -92,11 +92,6 @@ install_rbenv_gollum()
 	git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
     fi
 	cd ~/.rbenv && src/configure && make -C src
-	if (grep "export PATH=".*/.rbenv/bin:$PATH"" ~/.bashrc); then
-		echo " Path env for rbenv is already set."
-	else 
-		echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
-	fi
 	if (grep 'export PATH="$HOME/.rbenv/bin:$PATH"' ~/.bashrc); then
 		echo "Bashrc is already set up for rbenv."
 	else
