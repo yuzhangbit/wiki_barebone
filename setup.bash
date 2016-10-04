@@ -12,7 +12,19 @@ main()
     prepare_service_command  # create wiki.conf file
     load_configuration       # load configuration and service 
     create_autostart_app    # create wiki.desktop file
+    running_service 
 }
+
+running_service()
+{
+    if (initctl list | grep "$COMMAND"  | grep "running"); then 
+        stop "$COMMAND"
+        start "$COMMAND"
+    else  
+        start "$COMMAND"
+    fi 
+}
+
 
 load_configuration()
 {

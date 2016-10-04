@@ -1,9 +1,0 @@
-Type=Application
-Exec=start wiki
-Hidden=false
-NoDisplay=false
-X-GNOME-Autostart-enabled=true
-Name[en_CA]=wiki
-Name=wiki
-Comment[en_CA]=empty
-Comment=empty
