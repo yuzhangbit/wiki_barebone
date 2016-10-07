@@ -4,8 +4,14 @@ RUBY_VERSION=2.2.4
 
 main()
 {
+    install_apt_dependencies
+    install_rbenv_gollum     # install dependencies
+}
 
-	install_rbenv_gollum     # install dependencies
+
+install_apt_dependencies()
+{
+    sudo apt-get install -y libssl-dev libreadline-dev zlib1g-dev g++ libicu-dev build-essential
 }
 
 
@@ -13,31 +19,36 @@ install_rbenv_gollum()
 {
     cd $HOME
     echo "Start installing rbenv , gem , gollum....."
-    if [ -d ~/.rbenv ]; then 
-        echo "Find rbevn."
+    # install rbenv and ruby-build
+    wget -q https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-installer -O- | bash | true
+    # rbenv need login shell, setup environment for rbenv  
+    if [ -d ~/.bash_profile ]; then 
+ 	if (grep "if [ -f ~/.bashrc ]; then . ~/.bashrc; fi" ~/.bash_profile); then
+	    echo "Already set up!"
+        else
+	    echo 'if [ -f ~/.bashrc ]; then . ~/.bashrc; fi' >> ~/.bash_profile 
+        fi
     else
-        git clone https://github.com/rbenv/rbenv.git ~/.rbenv
-    
+        touch ~/.bash_profile
+        echo 'if [ -f ~/.bashrc ]; then . ~/.bashrc; fi' >> ~/.bash_profile
     fi
-
-    if [ -d ~/.rbenv/plugins/ruby-build ]; then
-        echo "Find the ruby build tool !"   
-    else
-        git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
-    fi
-    cd ~/.rbenv && src/configure && make -C src
     if (grep 'export PATH="$HOME/.rbenv/bin:$PATH"' ~/.bashrc); then
         echo "The PATH for rbenv is already set."
     else
         echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
     fi
-    source ~/.bashrc
-    ~/.rbenv/bin/rbenv init || true
-    echo "rbenv initialized successfully....." 
+
+    if (grep 'eval "$(rbenv init -)"' ~/.bashrc); then
+        echo "rbenv initialized."
+    else
+        echo 'eval "$(rbenv init -)"' >> ~/.bashrc
+    fi
+        echo "rbenv initialized successfully....." 
     source ~/.bashrc
     ~/.rbenv/bin/rbenv install $RUBY_VERSION
     rbenv global $RUBY_VERSION
     rbenv local $RUBY_VERSION 
+    export RBENV_SHELL=$RUBY_VERSION
     echo "Installing gollum........"
     gem install gollum 
     echo " All ruby packages installed successfully."
