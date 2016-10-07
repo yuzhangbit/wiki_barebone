@@ -30,7 +30,7 @@ Open your browser and check the wiki.
 localhost:4444
 ```
 ## Preview
-![preview](images/wiki-barebone.png)
+![preview](/images/wiki-barebone.png)
 
 
 
