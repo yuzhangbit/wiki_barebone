@@ -29,7 +29,8 @@ Open your browser and check the wiki.
 ```bash
 localhost:4444
 ```
-
+## Preview
+![preview]{images/wiki-barebone.png)
 
 
 
