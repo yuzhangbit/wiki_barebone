@@ -31,6 +31,13 @@ localhost:4444
 ```
 
 
+## Preview 
+![preview](/images/wiki-barebone.png)
+
+
+## Edit Mode
+![edit](/images/wiki-edit-mode.png)
+
 
 
 
