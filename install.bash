@@ -20,10 +20,10 @@ install_rbenv_gollum()
     cd $HOME
     echo "Start installing rbenv , gem , gollum....."
     # install rbenv and ruby-build
-    wget -q https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-installer -O- | bash | true
+    wget -q https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-installer -O- | bash || true
     # rbenv need login shell, setup environment for rbenv  
     if [ -d ~/.bash_profile ]; then 
- 	if (grep "if [ -f ~/.bashrc ]; then . ~/.bashrc; fi" ~/.bash_profile); then
+ 	if (grep "-f ~/.bashrc" ~/.bash_profile); then
 	    echo "Already set up!"
         else
 	    echo 'if [ -f ~/.bashrc ]; then . ~/.bashrc; fi' >> ~/.bash_profile 
@@ -43,9 +43,13 @@ install_rbenv_gollum()
     else
         echo 'eval "$(rbenv init -)"' >> ~/.bashrc
     fi
-        echo "rbenv initialized successfully....." 
+    echo "rbenv initialized successfully....." 
+    # temperally set up the env to install the following packages.
+    export PATH="$HOME/.rbenv/bin:$PATH"
+    eval "$(rbenv init -)"
     source ~/.bashrc
-    ~/.rbenv/bin/rbenv install $RUBY_VERSION
+    source ~/.bash_profile
+    rbenv install $RUBY_VERSION
     rbenv global $RUBY_VERSION
     rbenv local $RUBY_VERSION 
     export RBENV_SHELL=$RUBY_VERSION
