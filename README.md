@@ -25,7 +25,7 @@ localhost:4567
 ```
 
 #### Start and Stop wiki
-This wiki will be hosted automatically when you start ubuntu. You don't need to run commands below.
+This wiki will be hosted automatically when you start the ubuntu. You don't need to run commands below.
 ```bash
 start wiki  # start to host the wiki, the "wiki" is defined by the COMMAND variable.
 stop wiki   # stop to host the wiki,  the "wiki" is defined by the COMMAND variable.
@@ -33,10 +33,10 @@ stop wiki   # stop to host the wiki,  the "wiki" is defined by the COMMAND varia
 
 
 #### Preview
-![Demo](images/nb_autonomoose.png)
+![Demo](images/preview.png)
 
 #### Edit Mode View
-![Edit](images/nb_edit_mode.png)
+![Edit](images/edit.png)
 
 
 ## Adjustable Parameters
@@ -44,7 +44,7 @@ You can modify the port number of your wiki in **setup.script**,
 ```bash
 PORT=4567    # hosting port
 ```
-then run command:
+Then run the command:
 ```bash
 bash setup.bash
 ```
