@@ -33,10 +33,10 @@ stop wiki   # stop to host the wiki,  the "wiki" is defined by the COMMAND varia
 
 
 #### Preview
-![Demo](images/preview.png)
+![Demo](images/nb_autonomoose.png)
 
 #### Edit Mode View
-![Edit](images/edit.png)
+![Edit](images/nb_edit_mode.png)
 
 
 ## Adjustable Parameters
@@ -44,7 +44,7 @@ You can modify the port number of your wiki in **setup.script**,
 ```bash
 PORT=4567    # hosting port
 ```
-then run the command:
+then run command:
 ```bash
 bash setup.bash
 ```
