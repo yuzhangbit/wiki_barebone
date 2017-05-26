@@ -3,12 +3,12 @@ This is a lightweight gollum wiki template. This wiki will be hosted automatical
 
 
 ## Install  
-Run install script in the repo. This install script has only been tested on ubuntu 14.04 LTS and 16.04 LTS.
+Run the install script in the repo. This install script has only been tested on ubuntu 14.04 LTS and 16.04 LTS.
 ```bash
 git clone https://github.com/yuzhangbit/wiki-Barebone.git
 cd wiki-Barebone  
 ```
-If it is your first time to install this, please run commands below.  
+If it is your first time to install dependencies, please run commands below.  
 ```bash
 bash install.bash  # install dependencies
 bash setup.bash    # set up the autostart service
