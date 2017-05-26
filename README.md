@@ -1,5 +1,5 @@
 ## Description
-This is a lightweight gollum wiki template. This wiki will be hosted automatically in your local machine when you start the ubuntu after the nstallation. You can edit the content in markdown and preview the page from the browser directly whenever you want.
+This is a lightweight gollum wiki template. This wiki will be hosted automatically in your local machine when you start the ubuntu after the installation. You can edit the content in markdown and preview the page from the browser directly whenever you want.
 
 
 ## Install  
