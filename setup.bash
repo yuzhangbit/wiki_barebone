@@ -18,12 +18,7 @@ main()
 
 running_service()
 {
-    if (initctl list | grep "$COMMAND"  | grep "running"); then
-        stop "$COMMAND"
-        start "$COMMAND"
-    else
-        start "$COMMAND"
-    fi
+    start "$COMMAND"
 }
 
 
