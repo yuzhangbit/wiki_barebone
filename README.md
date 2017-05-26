@@ -18,22 +18,31 @@ If you have already installed the dependencies and just want to switch between d
 ```bash
 bash setup.bash
 ```
-
+## Usage
 Open your browser and check the wiki out.
 ```bash
-localhost:8888
+localhost:4567
 ```
 
-### Preview
+#### `Start and Stop wiki`
+This wiki will be hosted automatically when you start ubuntu. You don't need to run commands below.
+```bash
+start wiki  # start to host the wiki, the "wiki" is defined by the COMMAND variable.
+stop wiki   # stop to host the wiki,  the "wiki" is defined by the COMMAND variable.
+```
+
+
+#### `Preview`
 ![Demo](images/nb_autonomoose.png)
 
-### Edit Mode View
+#### `Edit Mode View`
 ![Edit](images/nb_edit_mode.png)
+
 
 ## Adjustable Parameters
 You can modify the port number of your wiki in **setup.script**,
 ```bash
-PORT=8888    # hosting port
+PORT=4567    # hosting port
 ```
 then run command:
 ```bash
@@ -45,12 +54,7 @@ Below is your service name of your wiki.
 COMMAND=wiki   # default value is wiki
 ```
 
-## Start and Stop wiki
-This wiki will be hosted automatically when you start ubuntu. You don't need to run commands below.
-```bash
-start wiki  # start to host the wiki, the "wiki" is defined by the COMMAND variable.
-stop wiki   # stop to host the wiki,  the "wiki" is defined by the COMMAND variable.
-```
+
 ## The Gollum Configuration used by this repo:
 ```ruby
 Gollum::Page.send :remove_const, :FORMAT_NAMES if defined? Gollum::Page::FORMAT_NAMES
