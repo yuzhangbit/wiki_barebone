@@ -24,7 +24,7 @@ Open your browser and check the wiki out.
 localhost:4567
 ```
 
-#### `Start and Stop wiki`
+#### Start and Stop wiki
 This wiki will be hosted automatically when you start ubuntu. You don't need to run commands below.
 ```bash
 start wiki  # start to host the wiki, the "wiki" is defined by the COMMAND variable.
@@ -32,10 +32,10 @@ stop wiki   # stop to host the wiki,  the "wiki" is defined by the COMMAND varia
 ```
 
 
-#### `Preview`
+#### Preview
 ![Demo](images/nb_autonomoose.png)
 
-#### `Edit Mode View`
+#### Edit Mode View
 ![Edit](images/nb_edit_mode.png)
 
 
