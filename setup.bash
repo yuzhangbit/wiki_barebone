@@ -1,28 +1,29 @@
-#!/bin/bash 
+#!/bin/bash
 set -e
-PORT=4444
+PORT=8888
 COMMAND="wiki"
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )" # get the absolute path to the script file
-RUBY_VERSION=2.2.4    # please keep the version number is the same with the one in install script
+RUBY_VERSION=2.3.4    # please keep the version number is the same with the one in install script
 main()
 {
-    
+
     REPO_NAME=$(basename $SCRIPT_DIR)   # get name of this repo
     prepare_service_bash    # create service.bash file
     prepare_service_command  # create wiki.conf file
-    load_configuration       # load configuration and service 
+    load_configuration       # load configuration and service
     create_autostart_app    # create wiki.desktop file
-    running_service 
+    running_service
+    echo "localhost:${PORT}"
 }
 
 running_service()
 {
-    if (initctl list | grep "$COMMAND"  | grep "running"); then 
+    if (initctl list | grep "$COMMAND"  | grep "running"); then
         stop "$COMMAND"
         start "$COMMAND"
-    else  
+    else
         start "$COMMAND"
-    fi 
+    fi
 }
 
 
@@ -39,19 +40,19 @@ load_configuration()
     echo "Start the service!"
 }
 
-create_autostart_app()   # will create a wiki.desktop file. 
+create_autostart_app()   # will create a wiki.desktop file.
 {
     if [ -d ~/.config/autostart ]; then
         echo "Already have the autostart folder."
-    else 
+    else
         mkdir -p ~/.config/autostart
-    fi  
+    fi
     APP="$COMMAND.desktop"
     cd "$SCRIPT_DIR"
     touch $APP
     echo '[Desktop Entry]' > $APP
-    echo "Type=Application" >> $APP    
-    echo "Exec=start $COMMAND" >> $APP 
+    echo "Type=Application" >> $APP
+    echo "Exec=start $COMMAND" >> $APP
     echo "Hidden=false" >> $APP
     echo "NoDisplay=false" >> $APP
     echo "X-GNOME-Autostart-enabled=true" >> $APP
@@ -74,7 +75,7 @@ prepare_service_bash()
     echo "Created service.bash file"
 }
 
-prepare_service_command()  # create wiki.conf file 
+prepare_service_command()  # create wiki.conf file
 {
     cd "$SCRIPT_DIR"
     touch $COMMAND.conf
