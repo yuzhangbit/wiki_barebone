@@ -1,8 +1,8 @@
 ## Description
-This is a lightweight gollum wiki template. This wiki will be hosted automatically in your local machine when you start the ubuntu after the installation. You can edit the content in markdown and preview the page from the browser directly whenever you want.
+Welcome to IVRC wiki. This wiki will be hosted automatically in your local machine when you start the ubuntu after the installation. You can edit the content in markdown and preview the page from the browser directly whenever you want.
 
 
-## Install  
+## Installation
 Run the install script in the repo. This install script has only been tested on ubuntu 14.04 LTS and 16.04 LTS.
 ```bash
 git clone https://github.com/yuzhangbit/wiki-Barebone.git
