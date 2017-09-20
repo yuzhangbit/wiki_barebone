@@ -14,7 +14,7 @@ bash install.bash  # install dependencies
 bash setup.bash    # set up the autostart service
 ```    
 
-If you have already installed the dependencies and just want to switch between different computers, just run the command below to set up the service:
+If you have already installed the dependencies and just want to switch between different computers, run the command below to set up the service:
 ```bash
 bash setup.bash
 ```
