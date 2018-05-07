@@ -29,7 +29,7 @@ install_rbenv_gollum()
         cd $rbenv_name && git reset --hard && git checkout master && git pull
     fi
 
-    # rbenv need login shell, setup environment for rbenv
+    # rbenv needs login shell, set the environment for rbenv
     if [ -d ~/.bash_profile ]; then
  	if (grep "-f ~/.bashrc" ~/.bash_profile); then
 	    echo "Already set up!"

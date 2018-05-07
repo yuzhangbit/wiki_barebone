@@ -65,7 +65,7 @@ prepare_service_bash()
     echo "#!/bin/bash" > service.bash
     echo "set -e" >> service.bash
     echo "cd $SCRIPT_DIR/" >> service.bash
-    echo "~/.rbenv/versions/$RUBY_VERSION/bin/gollum --config config --port $PORT" >> service.bash
+    echo "~/.rbenv/shims/bundle exec gollum --config config --port $PORT" >> service.bash
     sudo chmod a+x service.bash
     echo "Created service.bash file"
 }
