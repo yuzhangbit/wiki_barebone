@@ -1,6 +1,10 @@
 ## Description
 Welcome to IVRC wiki. This wiki will be hosted automatically in your local machine when you start the ubuntu after the installation. You can edit the content in markdown and preview the page from the browser directly whenever you want.
 
+## Dependencies
+* [rbenv]() (ruby version manager, avoid messing up with the rubycomes with the system)
+* [bundler]() (ruby application gem manaer, install and update gems with ease)
+* [gollum]()  (wiki engine)
 
 ## Installation
 Run the install script in the repo. This install script has only been tested on ubuntu 14.04 LTS and 16.04 LTS.
@@ -10,7 +14,7 @@ cd wiki-Barebone
 ```
 If it is your first time to install dependencies, please run commands below.  
 ```bash
-bash install.bash  # install dependencies
+bash install.bash  # install dependencies, rbenv, bundler, gollum
 bash setup.bash    # set up the autostart service
 ```    
 
