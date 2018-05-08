@@ -2,7 +2,7 @@
 Welcome to IVRC wiki. This wiki will be hosted automatically in your local machine when you start the ubuntu after the installation. You can edit the content in markdown and preview the page from the browser directly whenever you want.
 
 ## Dependencies
-* [rbenv]() (ruby version manager, avoid messing up with the rubycomes with the system)
+* [rbenv]() (ruby version manager, avoid messing up with the ruby comes with the system)
 * [bundler]() (ruby application gem manaer, install and update gems with ease)
 * [gollum]()  (wiki engine)
 * [supervisor]() (Automatically host the wiki when the system starts, also provide a nice gui to control programs)
