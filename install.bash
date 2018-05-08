@@ -3,17 +3,45 @@ set -e
 RUBY_VERSION=2.3.4
 rbenv_name=".rbenv"
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )" ## It is the absolute path where this script lies.
+SUPORVISOR_CONF_DIR="/etc/supervisor"
+SUP_CONF="supervisord.conf"
 
 main()
 {
     install_apt_dependencies
+    enable_supervisor_web_interface
     install_rbenv_gollum     # install dependencies
+
 }
 
 
 install_apt_dependencies()
 {
-    sudo apt-get install -y libssl-dev libreadline-dev zlib1g-dev g++ libicu-dev build-essential
+    sudo apt-get install -y libssl-dev libreadline-dev zlib1g-dev g++ libicu-dev build-essential supervisor
+}
+
+enable_supervisor_web_interface()
+{
+    # enable the web gui interface
+    if ( grep -Fxq "[inet_http_server]" /etc/supervisor/supervisord.conf ); then
+        # if find "inet_http_server" in the supervisord.conf
+        echo "Found web gui configuration."
+        if ( grep "port" /etc/supervisor/supervisord.conf ); then
+            echo "port found"
+            sudo sed -i '/port /c\port = 127.0.0.1:9001' /etc/supervisor/supervisord.conf
+        else
+            # port not found
+            echo "port not found"
+            sudo sh -c 'echo "port = 127.0.0.1:9001" >> /etc/supervisor/supervisord.conf'
+        fi
+
+    else
+        # can not find the configuration for the web app
+        sudo sh -c "echo '[inet_http_server]' >> /etc/supervisor/supervisord.conf"
+        sudo sh -c 'echo "port = 127.0.0.1:9001" >> /etc/supervisor/supervisord.conf'
+    fi
+    sudo supervisorctl reread
+    sudo supervisorctl update
 }
 
 
