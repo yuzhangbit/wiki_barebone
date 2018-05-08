@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 PORT="8888"
-APP_NAME="mywiki"
+APP_NAME="wiki"
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )" # get the absolute path to the script file
 CONF_DIR="/etc/supervisor/conf.d"  # supervisor configuration file directory
 CONF="$APP_NAME.conf"

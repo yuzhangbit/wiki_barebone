@@ -5,36 +5,45 @@ Welcome to IVRC wiki. This wiki will be hosted automatically in your local machi
 * [rbenv]() (ruby version manager, avoid messing up with the rubycomes with the system)
 * [bundler]() (ruby application gem manaer, install and update gems with ease)
 * [gollum]()  (wiki engine)
-* [supervisor]() (Automatically host the wiki when the system starts)
+* [supervisor]() (Automatically host the wiki when the system starts, also provide a nice gui to control programs)
 
 ## Installation
 Run the install script in the repo. This install script has only been tested on ubuntu 14.04 LTS and 16.04 LTS.
 ```bash
-git clone https://github.com/yuzhangbit/wiki-Barebone.git
-cd wiki-Barebone  
+git clone https://github.com/yuzhangbit/wiki_barebone.git
+cd wiki_barebone  
 ```
 If it is your first time to install dependencies, please run commands below.  
 ```bash
-bash install.bash  # install dependencies, rbenv, bundler, gollum, supervisor
-bash setup.bash    # set up the autostart service
+bash install.bash  # install dependencies, rbenv, bundler, gollum, supervisor, enable the web gui for supervisor
+bash setup.bash    # set up the autostart configuration for the wiki app
 ```    
 
-If you have already installed the dependencies and just want to switch between different computers, run the command below to set up the service:
+If you have already installed the dependencies, make your wiki automatically start using commands below,
 ```bash
 bash setup.bash
 ```
 ## Usage
 Open your browser and check the wiki out.
 ```bash
-localhost:4567
+localhost:8888
 ```
 
 #### Start and Stop wiki
-This wiki will be hosted automatically when you start the ubuntu. You don't need to run commands below.
+This wiki will be hosted automatically when you start the ubuntu. You can control the program through commands below or web gui interfaces.
 ```bash
-start wiki  # start to host the wiki, the "wiki" is defined by the COMMAND variable.
-stop wiki   # stop to host the wiki,  the "wiki" is defined by the COMMAND variable.
+sudo supervisorctl start wiki     # start to host the wiki, the "wiki" is defined by the APP_NAME variable.
+sudo supervisorctl restart wiki   # restart to host the wiki, the "wiki" is defined by the APP_NAME variable.
+sudo supervisorctl stop wiki      # stop to host the wiki,  the "wiki" is defined by the APP_NAME variable.
 ```
+
+#### Web gui to control the wiki app using the supervisor
+Open your browser and run the command below.
+```bash
+localhost:9001
+```
+You can see the web gui for the supervisor to control the wiki app program.  
+![gui](images/supervisor_web_gui.png)
 
 
 #### Preview
@@ -45,9 +54,9 @@ stop wiki   # stop to host the wiki,  the "wiki" is defined by the COMMAND varia
 
 
 ## Adjustable Parameters
-You can modify the port number of your wiki in **setup.script**,
+You can modify the port number of your wiki in **setup.bash**,
 ```bash
-PORT=4567    # hosting port
+PORT="8888"    # hosting port
 ```
 Then run the command:
 ```bash
@@ -56,7 +65,7 @@ bash setup.bash
 
 Below is your service name of your wiki.
 ```bash
-COMMAND=wiki   # default value is wiki
+APP_NAME="wiki"   # default value is wiki
 ```
 
 
@@ -76,6 +85,3 @@ wiki_options = {
 }
 Precious::App.set(:wiki_options, wiki_options)
 ```
-
-
-lsof -i :8888
