@@ -14,7 +14,7 @@ before_install:
 
 
 install:
-  - docker exec -u $USER -it ci_xenial /bin/bash -c "sudo chown 777 /home/robot/wiki_barebone";
+  - docker exec -u $USER -it ci_xenial /bin/bash -c "sudo chown 1777 /home/robot/.bundle";
   - docker exec -u $USER -it ci_xenial /bin/bash -c "/home/robot/wiki_barebone/install.bash";
 
 ## docker exec command allows to execute a command or a series of Linux shell commands inside our container.
@@ -25,7 +25,7 @@ install:
 ## better readability. Bash commands are separated with a semicolon (;).
 
 script:
-  - docker exec -u $USER -t ci_xenial_ros bash -c "/home/robot/wiki_barebone/setup.bash"
+  - docker exec -u $USER -t ci_xenial_ros /bin/bash -c "/home/robot/wiki_barebone/setup.bash"
 
 notifications:
     email: false
