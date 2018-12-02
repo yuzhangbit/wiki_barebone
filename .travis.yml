@@ -14,7 +14,6 @@ before_install:
 
 
 install:
-  - docker exec -u $USER -it ci_xenial /bin/bash -c "sudo chown 1777 /home/robot/.bundle";
   - docker exec -u $USER -it ci_xenial /bin/bash -c "/home/robot/wiki_barebone/install.bash";
 
 ## docker exec command allows to execute a command or a series of Linux shell commands inside our container.

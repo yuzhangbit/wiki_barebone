@@ -106,6 +106,7 @@ install_rbenv_gollum()
         gem install bundler
     fi
     echo "Installing gollum........"
+		sudo ~/.bundle && sudo chown robot -R 777 $SCRIPT_DIR
     bundler install --gemfile $SCRIPT_DIR/Gemfile
     echo " All ruby packages installed successfully."
 }
