@@ -17,6 +17,7 @@ main()
 
 install_apt_dependencies()
 {
+		sudo apt-get update
     sudo apt-get install -y libssl-dev libreadline-dev zlib1g-dev g++ libicu-dev build-essential supervisor
 }
 
