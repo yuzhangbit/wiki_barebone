@@ -7,15 +7,15 @@ language: cpp
 env:
 #  matrix:
 #    - INSTALL_ROS: false    ## use ros and ubuntu docker image from docker hub
-    - WITH_ROS: true    ## use ubuntu docker image from docker hub
+#    - WITH_ROS: true    ## use ubuntu docker image from docker hub
 
 
 before_install:
-  - docker run -d -it --name ci_xenial -v $(pwd):/home/wiki_barebone aragdoll/docker_ubuntu:xenial;
+  - docker run -d -it --name ci_xenial -v $(pwd):/home/robot/wiki_barebone aragdoll/docker_ubuntu:xenial_with_user_robot;
 
 
 install:
-  - docker exec -it ci_xenial /bin/bash -c "/home/wiki_barebone/install.bash";
+  - docker exec -it ci_xenial /bin/bash -c "/home/robot/wiki_barebone/install.bash";
 
 ## docker exec command allows to execute a command or a series of Linux shell commands inside our container.
 ## -t options allocates a pseudo-TTY for this command(-s) so you can view output or error messages, if any, in Travis CI build log.
@@ -25,7 +25,7 @@ install:
 ## better readability. Bash commands are separated with a semicolon (;).
 
 script:
-  - docker exec -t ci_xenial_ros bash -c "/home/wiki_barebone/setup.bash"
+  - docker exec -t ci_xenial_ros bash -c "/home/robot/wiki_barebone/setup.bash"
 
 notifications:
     email: false
