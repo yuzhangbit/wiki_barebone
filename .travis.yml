@@ -10,7 +10,7 @@ env:
 
 
 before_install:
-  - docker run -d -u $USER -it --name ci_xenial -v $(pwd):/home/robot/wiki_barebone aragdoll/docker_ubuntu:xenial_with_user_robot;
+  - docker run -d -u $USER -it --name ci_xenial -v $(pwd):/home/robot/wiki_barebone:rw aragdoll/docker_ubuntu:xenial_with_user_robot;
 
 
 install:
