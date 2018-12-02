@@ -54,7 +54,7 @@ install_rbenv_gollum()
     else
         # find the .rbenv, pull the latest changes to the master branch
         echo "Update the rbenv through git......"
-        cd $rbenv_name && git reset --hard && git checkout master && git pull
+        cd ~/$rbenv_name && git reset --hard && git checkout master && git pull
     fi
 
     # rbenv needs login shell, set the environment for rbenv
