@@ -106,7 +106,7 @@ install_rbenv_gollum()
         gem install bundler
     fi
     echo "Installing gollum........"
-    bundler install --gemfile $SCRIPT_DIR/Gemfile
+    bundler install --deployment --gemfile $SCRIPT_DIR/Gemfile
     echo " All ruby packages installed successfully."
 }
 
