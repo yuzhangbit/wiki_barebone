@@ -106,7 +106,7 @@ install_rbenv_gollum()
         gem install bundler
     fi
     echo "Installing gollum........"
-		mkdir -p ~/.bundle && sudo chmod -R 777 ~/.bundle && sudo chmod -R 777 ~/.bundle/config
+		mkdir -p ~/.bundle/config && sudo chmod -R 777 ~/.bundle
     bundler install --deployment --gemfile $SCRIPT_DIR/Gemfile
     echo " All ruby packages installed successfully."
 }
