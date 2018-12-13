@@ -17,6 +17,7 @@ main()
 
 install_apt_dependencies()
 {
+		sudo apt-get update
     sudo apt-get install -y libssl-dev libreadline-dev zlib1g-dev g++ libicu-dev build-essential supervisor
 }
 
@@ -40,7 +41,7 @@ enable_supervisor_web_interface()
         sudo sh -c "echo '[inet_http_server]' >> /etc/supervisor/supervisord.conf"
         sudo sh -c 'echo "port = 127.0.0.1:9001" >> /etc/supervisor/supervisord.conf'
     fi
-    sudo supervisorctl reread
+    sudo service supervisor start && sudo supervisorctl reread
     sudo supervisorctl update
 }
 
@@ -50,7 +51,7 @@ install_rbenv_gollum()
     cd $HOME && if [[ ! -d $rbenv_name ]]; then
         # cannot find rbenv , download it then
         echo "Start installing rbenv....."
-        wget -q https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-installer -O- | bash || true
+        wget https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-installer -O- | bash || true
     else
         # find the .rbenv, pull the latest changes to the master branch
         echo "Update the rbenv through git......"
@@ -105,7 +106,7 @@ install_rbenv_gollum()
         gem install bundler
     fi
     echo "Installing gollum........"
-    bundler install --gemfile $SCRIPT_DIR/Gemfile
+    bundler install --deployment --gemfile $SCRIPT_DIR/Gemfile
     echo " All ruby packages installed successfully."
 }
 
