@@ -1,7 +1,7 @@
-Description
+Description [![Build Status](https://travis-ci.com/yuzhangbit/wiki_barebone.svg?branch=master)](https://travis-ci.com/yuzhangbit/wiki_barebone)
 -----------
 
-Welcome to IVRC wiki. This wiki will be hosted automatically in your local machine when you start the ubuntu after the installation. You can edit the content in markdown and preview the page from the browser directly whenever you want.
+Welcome to wiki. This wiki will be hosted automatically in your local machine when you start the ubuntu after the installation. You can edit the content in markdown and preview the page from the browser directly whenever you want.
 
 Dependencies
 ------------
