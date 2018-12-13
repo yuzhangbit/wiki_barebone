@@ -6,7 +6,7 @@ language: cpp
 
 env:
    matrix:
-    - USER: robot    ## use ros and ubuntu docker image from docker hub
+    - USER: robot    ## user name : robot 
 
 
 before_install:
