@@ -24,14 +24,14 @@ cd wiki_barebone
 If it is your first time to install dependencies, please run commands below.
 
 ```bash
-bash install.bash  # install dependencies, rbenv, bundler, gollum, supervisor, enable the web gui for supervisor
-bash setup.bash    # set up the autostart configuration for the wiki app
+./install.sh  # install dependencies, rbenv, bundler, gollum, supervisor, enable the web gui for supervisor
+./setup.sh    # set up the autostart configuration for the wiki app
 ```
 
 If you have already installed the dependencies, make your wiki automatically start using commands below,
 
 ```bash
-bash setup.bash
+./setup.sh
 ```
 
 Usage
@@ -84,7 +84,7 @@ PORT="8888"    # hosting port
 Then run the command:
 
 ```bash
-bash setup.bash
+./setup.sh
 ```
 
 Below is your service name of your wiki.

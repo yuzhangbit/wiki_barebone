@@ -6,7 +6,7 @@ language: cpp
 
 env:
    matrix:
-    - USER: robot    ## user name : robot 
+    - USER: robot    ## user name : robot
 
 
 before_install:
@@ -16,17 +16,10 @@ before_install:
 
 
 install:
-  - docker exec -u $USER -it ci_xenial /bin/bash -c "/home/robot/wiki_barebone/install.bash";
-
-## docker exec command allows to execute a command or a series of Linux shell commands inside our container.
-## -t options allocates a pseudo-TTY for this command(-s) so you can view output or error messages, if any, in Travis CI build log.
-## xenial is the name of a container we send commands to.
-## bash -c means that we will execute the following string in bash shell.
-## YAML allows to span strings enclosed in quotes (") into several lines and I recommend to put each command on a separate line for
-## better readability. Bash commands are separated with a semicolon (;).
+  - docker exec -u $USER -it ci_xenial /bin/bash -c "/home/robot/wiki_barebone/install.sh";
 
 script:
-  - docker exec -u $USER -t ci_xenial /bin/bash -c "/home/robot/wiki_barebone/setup.bash"
+  - docker exec -u $USER -t ci_xenial /bin/bash -c "/home/robot/wiki_barebone/setup.sh"
 
 notifications:
     email: false
