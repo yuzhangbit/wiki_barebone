@@ -11,6 +11,8 @@ env:
 
 before_install:
   - docker run -d -u $USER -it --name ci_xenial -v $(pwd):/home/robot/wiki_barebone:rw aragdoll/docker_ubuntu:xenial_with_user_robot;
+  # grant user permissions to the robot home folder 
+  - docker exec -u $USER -it ci_xenial /bin/bash -c "sudo chown robot:robot -R /home/robot";
 
 
 install:
